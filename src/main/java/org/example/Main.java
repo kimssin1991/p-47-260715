@@ -2,29 +2,43 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Main {
-    static void main(String[] args) {
 
+public class Main {
+    public static void main(String[] args) {
+
+        // Scanner
         Scanner sc = new Scanner(System.in);
 
         System.out.println("== 명언 앱 ==");
-        System.out.print("명령) ");
-        String cmd = sc.nextLine();
 
-        sc.close();
-        //String cmd = "";
+        String cmd = "";
+        int no = 1;
+        String content = "";
+        String author = "";
 
         while(!cmd.equals("종료")) {
             System.out.print("명령) ");
             cmd = sc.nextLine();
 
             if(cmd.equals("등록")) {
+
                 System.out.print("명언 : ");
-                String content = sc.nextLine();
+                content = sc.nextLine();
                 System.out.print("작가 : ");
-                String author = sc.nextLine();
-                System.out.println("1번 명언이 등록되었습니다.");
+                author = sc.nextLine();
+                // %d => 숫자
+                // %s => 문자열
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(no));
+                ++no;
             }
+
+            if(cmd.equals("목록")) {
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("----------------------");
+                System.out.println("1 / %s / %s.".formatted(author, content));
+            }
+
+
         }
     }
 }
